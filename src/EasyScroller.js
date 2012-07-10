@@ -52,13 +52,13 @@ EasyScroller.prototype.render = (function() {
 	if (helperElem.style[perspectiveProperty] !== undef) {
 		
 		return function(left, top, zoom) {
-			this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
+			this.content.style[transformProperty] = 'translate3d(' + (-Math.round(left)) + 'px,' + (-Math.round(top)) + 'px,0) scale(' + zoom + ')';
 		};	
 		
 	} else if (helperElem.style[transformProperty] !== undef) {
 		
 		return function(left, top, zoom) {
-			this.content.style[transformProperty] = 'translate(' + (-left) + 'px,' + (-top) + 'px) scale(' + zoom + ')';
+			this.content.style[transformProperty] = 'translate(' + (-Math.round(left)) + 'px,' + (-Math.round(top)) + 'px) scale(' + zoom + ')';
 		};
 		
 	} else {
